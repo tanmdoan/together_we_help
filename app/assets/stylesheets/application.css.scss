@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+body,html {
+    height:100%;
+    width:100%;
+    background-image: url('volunteer.jpg');
+    background-size: 1800px 800px;
+    background-repeat: no-repeat;
+}
+
+.off-canvas-wrap,.inner-wrap{
+    height:100%;
+}
