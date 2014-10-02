@@ -13,14 +13,25 @@
 
   <div class="off-canvas-wrap" data-offcanvas>
     <div class="inner-wrap">
-      <nav class='tab-bar'>
+      <nav class='top-bar', data-topbar role="navigation">
+
         <section class='left-small'>
           <a class="left-off-canvas-toggle menu-icon" href="#" ><span></span>Menu</a>
         </section>
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to 'Together We Help', '#', class: 'site-name' %></h1>
+          </li>
+        </ul>
 
-        <section class="middle tab-bar-section">
-          <h1 class="title">Together We Help</h1>
-        </section>
+
+
+
+        <ul class='right signin'>
+          <li class='has-form'>
+            <%= link_to 'Sign In', '#' , class: 'button'%>
+          </li>
+        </ul>
       </nav>
 
     <!-- Off Canvas Menu -->
@@ -35,6 +46,11 @@
       <section class="main-section">
         <body>
           <%= yield %>
+          <div class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
           <%= javascript_include_tag "application" %>
         </body>
       </section>

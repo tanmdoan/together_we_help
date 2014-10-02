@@ -1,4 +1,5 @@
 ## Iteration Planning ##
+[![Stories in Ready](https://badge.waffle.io/tdoan87/together_we_help.svg?label=ready&title=Ready)](http://waffle.io/tdoan87/together_we_help)
 
 ### Have a Thing 10/2
 

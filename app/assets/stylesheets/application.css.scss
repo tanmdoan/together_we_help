@@ -19,11 +19,13 @@
 body,html {
     height:100%;
     width:100%;
-    background-image: url('volunteer.jpg');
-    background-size: 1800px 800px;
-    background-repeat: no-repeat;
+    background-color: #f1f1f1;
 }
 
 .off-canvas-wrap,.inner-wrap{
     height:100%;
+}
+
+.site-name {
+  margin-left: 40px;
 }
