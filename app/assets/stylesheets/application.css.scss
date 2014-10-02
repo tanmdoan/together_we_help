@@ -21,8 +21,14 @@
     background-color: #f1f1f1;
 }
 
-.full-wdith {
+.full-width {
     min-width: 100%;
+}
+
+.welcome-message {
+  position: absolute;
+  right: 150px;
+  color: white;
 }
 
 header {
@@ -65,4 +71,8 @@ body,html {
     height:100%;
     width:100%;
     background-color: #f1f1f1;
+}
+
+div.fb-like {
+  min-height: 24px;
 }
