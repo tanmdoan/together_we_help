@@ -1,8 +1,8 @@
   def auth_mock
-    OmniAuth.config.mock_auth[:facebook] = {
+    OmniAuth.config.mock_auth[:facebook] =  OmniAuth::AuthHash.new({
       provider: 'facebook',
       uid: '123',
-      user_info: {
+      info: {
         name: 'bob gu',
         email: 'bobgu@example.com',
         location: 'Denver, CO'
@@ -11,12 +11,12 @@
         token: 'mock_token',
         secret: 'mock_secret'
       }
-    }
+    })
   end
 
   def sign_in
     visit root_path
-    expect(page).to have_content("Sign In")
+    expect(page).to have_content("Log In")
     auth_mock
-    click_link "Sign In"
+    click_link "Log In"
   end
