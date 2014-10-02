@@ -38,6 +38,11 @@ header {
         color: #fff;
         padding-top: 50px;
     }
+
+    h5 {
+
+      color: #fff;
+    }
 }
 
 .navigation-section {
@@ -51,6 +56,19 @@ header {
 
 .main-section {
     padding: 30px 0 25px 0;
+}
+
+.bob {
+  size: 60%;
+}
+
+#gravatar {
+  height: 35px;
+  width: 35px;
+  border: solid 1px;
+  border-radius: 20px;
+  position: relative;
+  bottom: 3px;
 }
 
 footer {
