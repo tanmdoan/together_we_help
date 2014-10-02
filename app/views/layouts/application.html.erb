@@ -10,54 +10,128 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
-  <div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-      <nav class='top-bar', data-topbar role="navigation">
-
-        <section class='left-small'>
-          <a class="left-off-canvas-toggle menu-icon" href="#" ><span></span>Menu</a>
-        </section>
-        <ul class="title-area">
-          <li class="name">
-            <h1><%= link_to 'Together We Help', '#', class: 'site-name' %></h1>
-          </li>
-        </ul>
+  <body>
 
 
+  <!-- LARGE SCREEN TOP BAR MENU -->
+  <section class="navigation-section show-for-large-up">
+      <div class="row">
+          <div class="large-12 columns">
+
+              <!-- TOP BAR INITIALIZATION -->
+              <nav class="top-bar" data-topbar>
+                  <ul class="title-area">
+                      <li class="name">
+                          <h1></h1>
+                      </li>
+                  </ul> <!-- END UL.TITLE-AREA -->
+
+                  <!-- TOP BAR MENU ELEMENTS -->
+                  <section class="top-bar-section">
+                      <ul class="left">
+                          <li class="active"><a href="index.html">Home</a></li>
+                          <li class="has-dropdown">
+                              <a href="blog.html">Find Events</a>
+                              <ul class="dropdown">
+                                  <li><a href="blog.html">My Events</a></li>
+                              </ul>
+                          </li>
+                          <li class="has-dropdown">
+                              <a href="page.html">Page</a>
+                              <ul class="dropdown">
+                                  <li><a href="page.html">Full-wdith</a></li>
+                                  <li><a href="sidebar-left.html">Left Sidebar</a></li>
+                                  <li><a href="sidebar-right.html">Right Sidebar</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                      <ul class='right'>
+                        <li><%= link_to 'Sign In', '#', class: 'button' %></li>
+                      </ul>
+                  </section> <!-- END SECTION.TOP-BAR-SECTION -->
+              </nav> <!-- END NAV.TOP-BAR -->
+
+          </div> <!-- END 12 COLUMNS -->
+      </div> <!-- END ROW -->
+  </section> <!-- END SECTION.NAVIGATION-SECTION -->
 
 
-        <ul class='right signin'>
-          <li class='has-form'>
-            <%= link_to 'Sign In', '#' , class: 'button'%>
-          </li>
-        </ul>
-      </nav>
+  <!-- HEADER SECTION -->
+  <header>
+      <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+              <div class="logo">
+                  <h1>Together We Help</h1>
+              </div> <!-- END DIV.LOGO -->
+          </div> <!-- END 12 COLUMNS -->
+      </div> <!-- END ROW -->
+  </header> <!-- END HEADER -->
 
-    <!-- Off Canvas Menu -->
-      <aside class="left-off-canvas-menu">
-        <ul class='off-canvas-list'>
-          <li><label>Begin Here</label></li>
-          <li><a href="#">Find Events</a></li>
-          <li><a href="#">All Events</a></li>
-        </ul>
-      </aside>
 
-      <section class="main-section">
-        <body>
-          <%= yield %>
-          <div class="fb-like"
-            data-share="true"
-            data-width="450"
-            data-show-faces="true">
-          </div>
-          <%= javascript_include_tag "application" %>
-        </body>
-      </section>
+    <!-- OFF CANVAS SECTIONS WRAPPING THE MAIN CONTENT -->
+  <div class="off-canvas-wrap">
+      <div class="inner-wrap">
 
-    <a class="exit-off-canvas"></a>
+          <!-- OFF CANVAS MENU BAR -->
+          <nav class="tab-bar hide-for-large-up">
 
-    </div>
-  </div>
+              <section class="left-small">
+                  <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+              </section>
 
+              <section class="right tab-bar-section">
+                  <h1 class="title">Menu</h1>
+              </section>
+
+          </nav> <!-- END NAV.TAB-BAR HIDE-FOR-LARGE-UP -->
+
+          <!-- OFF CANVAS MENU -->
+          <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list">
+                  <li><label>Navigation</label></li>
+                  <li><a href="index.html">Home</a></li>
+              </ul>
+              <ul class="off-canvas-list">
+                  <li class="has-dropdown"><a href="blog.html">Blog</a>
+                      <ul class="off-canvas-list">
+                          <li><a href="blog.html">Archive</a></li>
+                          <li><a href="post.html">Single</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <ul class="off-canvas-list">
+                  <li class="has-dropdown"><a href="page.html">Page</a>
+                      <ul class="off-canvas-list">
+                          <li><a href="page.html">Full-width</a></li>
+                          <li><a href="sidebar-left.html">Left Sidebar</a></li>
+                          <li><a href="sidebar-right.html">Right Sidebar</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <ul class="off-canvas-list">
+                  <li><a href="portfolio.html">Portfolio</a></li>
+              </ul>
+          </aside>
+
+        <%= yield %>
+
+        <%= javascript_include_tag "application" %>
+
+
+
+    <!-- CLOSE THE OFF-CANVAS MENU -->
+      <a class="exit-off-canvas"></a>
+
+      </div>
+  </div> <!-- END OFF CANVAS -->
+
+  <!-- COPYRIGHT SECTION -->
+    <section class="full-width copyright-section">
+        <div class="row">
+            <div class="small-12 columns">
+                <p>&copy; 2014. Built by <%= link_to 'Tan Doan', 'http://github.com/tdoan87' %>. A Turing Student</p>
+            </div> <!-- END 12 COLUMNS -->
+        </div> <!-- END ROW -->
+    </section> <!-- END SECTION.FULL-WIDTH COPYRIGHT-SECTION -->
+  </body>
 </html>
