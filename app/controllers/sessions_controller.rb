@@ -9,4 +9,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path, notice: 'Goodbye!'
   end
+
+  def failure
+    redirect_to root_path, notice: 'Authentication Error'
+  end
 end

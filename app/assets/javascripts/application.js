@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation();
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -33,3 +33,9 @@ window.fbAsyncInit = function() {
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+
+   $('div.flash').each(function(index) {
+    humane.log($(this).text());
+  });
+});

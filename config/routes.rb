@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get '/auth/facebook/callback', to: 'sessions#create'
-
+  get '/auth/failure', to: 'sessions#failure'
   get '/login' => redirect('/auth/facebook'), as: :login
   get '/logout' => 'sessions#destroy', as: :logout
   # The priority is based upon order of creation: first created -> highest priority.

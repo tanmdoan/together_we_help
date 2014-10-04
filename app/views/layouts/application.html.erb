@@ -129,7 +129,9 @@
                   <li><a href="portfolio.html">Portfolio</a></li>
               </ul>
           </aside>
-
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: [name, :flash, :hide] %>
+        <% end %>
         <%= yield %>
 
         <%= javascript_include_tag "application" %>
