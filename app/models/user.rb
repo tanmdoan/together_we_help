@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
       user.first_name = auth_data['info']['first_name']
       user.email      = auth_data['info']['email']
       user.image      = auth_data['info']['image']
+      user.location   = auth_data['info']['location']
       user.save
     end
     return user

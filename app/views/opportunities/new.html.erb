@@ -1,0 +1,7 @@
+<% @opportunities.organization_names.each do |organization| %>
+  <%= form_for @opportunity do |f| %>
+    <%= f.label organization %>
+    <%= f.hidden_field :organization_name, value: organization %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

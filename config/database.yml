@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: together_we_help_production
-  username: deployment
+  username: deployement
   password: <%= ENV['TOGETHER_WE_HELP_DATABASE_PASSWORD'] %>

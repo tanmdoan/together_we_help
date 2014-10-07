@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Together-we-Help" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -32,9 +32,9 @@
                           <li class="active"><a href="index.html">Home</a></li>
                           <li class="has-dropdown">
                         <% if current_user %>
-                              <a href="blog.html">Find Events</a>
+                              <%= link_to 'Find Opportunities', new_opportunity_path %>
                               <ul class="dropdown">
-                                  <li><a href="blog.html">My Events</a></li>
+                                  <li><%= link_to 'My Opportunties', opportunities_path %></li>
                               </ul>
                           </li>
                           <li class="has-dropdown">
