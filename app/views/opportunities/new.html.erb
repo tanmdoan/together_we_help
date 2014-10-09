@@ -1,9 +1,16 @@
-<% @opportunities.data.each do |datum| %>
+<% @opportunities.each do |opportunity| %>
   <%= form_for @opportunity do |f| %>
-    <%= f.label get_organization(datum) %>
-    <%= f.hidden_field :organization_name, value: get_organization(datum)  %>
-    <%= f.label get_title(datum) %>
-    <%= f.label get_description(datum) %>
+    <%= opportunity.organization %><div>
+    </div>
+    <%= f.hidden_field :organization_name, value: opportunity.organization %>
+    <div>
+
+    </div>
+    <%= opportunity.title %>
+    <div>
+
+    </div>
+    <%= opportunity.formatted_description %>
 
     <%= f.submit %>
   <% end %>

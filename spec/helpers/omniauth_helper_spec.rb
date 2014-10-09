@@ -4,6 +4,7 @@
       uid: '123',
       info: {
         name: 'bob gu',
+        first_name: 'bob',
         email: 'bobgu@example.com',
         location: 'Denver, CO'
       },

@@ -6,7 +6,9 @@ class OpportunitiesController < ApplicationController
   def new
     data = VolunteerMatchApi.new.find_events_by_location('Denver, CO')
     @opportunity = Opportunity.new
-    @opportunities = OpportunitiesPresenter.new(data)
+    @opportunities = data['opportunities'].map do |opportunity|
+      OpportunityPresenter.new(opportunity)
+    end
   end
 
   def create
