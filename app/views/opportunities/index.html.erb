@@ -1,4 +1,17 @@
-<h1>My Opportunities</h1>
-<%= div_for(@opportunities, class: 'opportunity') do |opportunity| %>
-  <%= opportunity.organization_name %>
-<% end %>
+
+<div class='row'>
+  <div class='medium-12 columns'>
+    <h1>Pending Opportunities</h1>
+    <%= div_for(@opportunities, class: 'opportunity') do |opportunity| %>
+      <div class="panel">
+      <h5>Title:</h5>
+      <%= opportunity.title %></br>
+      </br><h5>Organization:</h5>
+      <%= opportunity.organization_name %>
+      </br>
+      </br><h5>Description:</h5>
+      <%= raw opportunity.description %>
+      </br></br>
+    <% end %>
+  </div>
+</div>

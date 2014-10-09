@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :opportunity do
     organization_name 'Help The Kids'
-    title 'Kid Helper'
+    title 'help kids'
     description 'Them kids be needing help'
   end
 end

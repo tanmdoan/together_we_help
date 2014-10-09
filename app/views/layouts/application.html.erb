@@ -34,7 +34,7 @@
                         <% if current_user %>
                               <%= link_to 'Find Opportunities', new_opportunity_path %>
                               <ul class="dropdown">
-                                  <li><%= link_to 'My Pending Opportunties', opportunities_path %></li>
+                                  <li><%= link_to 'My Pending Opportunities', opportunities_path , id: 'pending'%></li>
                                   <li><%= link_to 'My Confirmed Opportunties', opportunities_path %></li>
                               </ul>
                           </li>

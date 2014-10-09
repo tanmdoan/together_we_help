@@ -5,12 +5,16 @@
         <%= form_for @opportunity do |f| %>
           <h5>Title:</h5>
           <%= opportunity.title %></br>
+          <%= f.hidden_field :title, value: opportunity.title %>
+
           </br><h5>Organization:</h5>
           <%= opportunity.organization %>
           </br>
           <%= f.hidden_field :organization_name, value: opportunity.organization %>
           </br><h5>Description:</h5>
           <%= raw opportunity.description %>
+          <%= f.hidden_field :description, value: opportunity.description %>
+
           </br></br>
           <%= f.submit class: 'button small' %><%= link_to 'More info', opportunity.vm_url, class: 'button small secondary' %>
         <% end %>
