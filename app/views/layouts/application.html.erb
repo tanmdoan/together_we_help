@@ -34,15 +34,15 @@
                         <% if current_user %>
                               <%= link_to 'Find Opportunities', new_opportunity_path %>
                               <ul class="dropdown">
-                                  <li><%= link_to 'My Opportunties', opportunities_path %></li>
+                                  <li><%= link_to 'My Pending Opportunties', opportunities_path %></li>
+                                  <li><%= link_to 'My Confirmed Opportunties', opportunities_path %></li>
                               </ul>
                           </li>
                           <li class="has-dropdown">
-                              <a href="page.html">Page</a>
+                              <a href="page.html">Friends</a>
                               <ul class="dropdown">
-                                  <li><a href="page.html">Full-wdith</a></li>
-                                  <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                                  <li><a href="sidebar-right.html">Right Sidebar</a></li>
+                                  <li><a href="page.html">Pending Opportunities</a></li>
+                                  <li><a href="sidebar-left.html">Confirmed Opportunities</a></li>
                               </ul>
                           </li>
                           <% else %>
@@ -50,6 +50,8 @@
                       </ul>
                       <% if current_user %>
                       <div class="row right welcome-message">
+                        <span class="alert round radius label friend-badge">1</span>
+                          <%= image_tag('friendrequest.png', id: 'friend-icon') %>
                           <%= image_tag(current_user.image, id: 'gravatar') %>
                             Welcome, <%= current_user.first_name  %>
                       </div>
