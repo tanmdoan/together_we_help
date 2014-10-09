@@ -1,8 +1,9 @@
 require 'delegate'
 
 class OpportunityPresenter < SimpleDelegator
-  def formatted_description
-    self['plaintextDescription'].capitalize
+
+  def description
+    self['description']
   end
 
   def organization
@@ -11,5 +12,13 @@ class OpportunityPresenter < SimpleDelegator
 
   def title
     self["title"]
+  end
+
+  def vm_url
+    self["vmUrl"]
+  end
+
+  def start_date
+    self["availability"]["startDate"]
   end
 end

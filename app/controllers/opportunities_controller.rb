@@ -4,16 +4,13 @@ class OpportunitiesController < ApplicationController
   end
 
   def new
-    data = VolunteerMatchApi.new.find_events_by_location('Denver, CO')
     @opportunity = Opportunity.new
-    @opportunities = data['opportunities'].map do |opportunity|
-      OpportunityPresenter.new(opportunity)
-    end
+    @opportunities = Opportunity.collect_opportunities
   end
 
   def create
     @opportunity = Opportunity.create(opportunity_params)
-    redirect_to root_path
+    redirect_to opportunities_path
   end
 
 
