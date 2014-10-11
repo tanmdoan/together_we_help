@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   root 'static_pages#index'
 
   get '/auth/facebook/callback', to: 'sessions#create'
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', as: :logout
 
   resources :opportunities, only: [:new, :create, :index]
+  resources :users, only: [:index, :show]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

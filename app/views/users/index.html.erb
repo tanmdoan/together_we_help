@@ -1,0 +1,13 @@
+<div class= 'row'>
+  <div class= 'medium-6 columns'>
+
+    <h1>All Users</h1>
+    <%= div_for(@users, class: 'user') do |user| %>
+    <div class="panel">
+      <%= image_tag(user.image, id: 'gravatar-friend') %>
+      <%= user.name %>
+      <%= link_to 'Send Friend Request', '#', class: "right" %>
+    </div>
+    <% end %>
+  </div>
+</div>

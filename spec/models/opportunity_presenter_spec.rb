@@ -7,7 +7,7 @@ describe 'opportunity presenter', type: :model do
       "description" => "hi, im a description",
       "title" => "hi, im a title",
       "vmUrl" => "hi, im a url",
-      "availability"=> { "startDate" => "hi, im a startdate" 
+      "availability"=> { "startDate" => "hi, im a startdate"
       }
     }
   end
