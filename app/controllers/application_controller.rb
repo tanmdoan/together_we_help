@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def authorized_user?
+    @user = User.find(params[:id])
+    unless current_user == @user
+      redirect_to root_url, :alert => "Access Denied."
+    end
+  end
+
 end

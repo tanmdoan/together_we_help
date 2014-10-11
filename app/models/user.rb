@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :first_name, presence: true
   validates :uid, presence: true
+  has_many :opportunities
 
   def self.find_or_create_by_auth(auth_data)
     user = self.find_or_initialize_by(provider: auth_data["provider"], uid: auth_data['uid'])

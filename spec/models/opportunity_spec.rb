@@ -6,4 +6,6 @@ RSpec.describe Opportunity, :type => :model do
 
     expect(opp.class).to eq Array
   end
+
+  it {should belong_to :user}
 end
