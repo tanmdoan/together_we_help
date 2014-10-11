@@ -9,7 +9,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def create
-    @opportunity = Opportunity.create(opportunity_params)
+    @opportunity = current_user.opportunities.create(opportunity_params)
     redirect_to opportunities_path
   end
 
