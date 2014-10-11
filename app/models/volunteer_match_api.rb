@@ -5,12 +5,18 @@ class VolunteerMatchApi
     @api_key      = ENV['vm_key']
   end
 
-  def find_event_by_name(name)
-    call :searchOpportunities, {:name => name}.to_json
+  def find_events_by_location(location)
+    call :searchOpportunities, { location: location, radius: "10",
+       dateRanges: [{startDate: formatted_date_today, endDate: today_plus_thirty }] }.to_json
   end
 
-  def find_events_by_location(location)
-    call :searchOpportunities, { location: location, radius: "5" }.to_json
+  def formatted_date_today
+    Date.today.strftime("%Y-%m-%d")
+  end
+
+  def today_plus_thirty
+    date = Date.today + 30
+    date.strftime("%Y-%m-%d")
   end
 
 
