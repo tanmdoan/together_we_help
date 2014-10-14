@@ -6,7 +6,7 @@
     <div class="panel">
       <%= image_tag(friend.image, id: 'gravatar-friend') %>
       <%= friend.name %>
-
+      <%= link_to 'Remove', friendship_path(friend), method: :delete, class: 'right' %>
     </div>
     <% end %>
   </div>

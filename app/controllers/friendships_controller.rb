@@ -15,6 +15,15 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def destroy
+    @friendship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id, confirmed: true)
+    if @friendship.destroy
+      redirect_to friendships_path, notice = 'Successfully removed friend!'
+    else
+      render friendships_path, alert = 'Failed to remove friend!'
+    end
+  end
+
   def pending_requests
     requests   = Friendship.unconfirmed_requests_for(current_user)
     friend_ids = requests.map(&:user_id)
