@@ -1,4 +1,4 @@
-  def auth_mock
+    def auth_mock
     OmniAuth.config.mock_auth[:facebook] =  OmniAuth::AuthHash.new({
       provider: 'facebook',
       uid: '123',

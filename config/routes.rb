@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   root 'static_pages#index'
 
   get '/auth/facebook/callback', to: 'sessions#create'
@@ -10,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :opportunities, only: [:new, :create, :index]
   resources :users, only: [:index, :show]
-
+  resources :friendships do
+    collection do
+      get :pending_requests
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

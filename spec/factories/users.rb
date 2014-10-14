@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :user do
     provider "facebook"
     uid "1"
-    name "Bob"
+    name "Bob gu"
     first_name "Bob"
     email "bob@example.com"
     location "Africa"

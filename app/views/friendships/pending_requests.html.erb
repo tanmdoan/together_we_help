@@ -1,0 +1,14 @@
+<div class= 'row'>
+  <div class= 'medium-6 columns'>
+
+    <h1>Pending Requests</h1>
+    <%= div_for(@unconfirmed_friends, class: 'friends') do |friend| %>
+    <div class="panel">
+      <%= image_tag(friend.image, id: 'gravatar-friend') %>
+      <%= friend.name.titleize %>
+      <%= friend.email %>
+      <%= link_to 'Approve', '#', class: "right" %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -41,7 +41,7 @@
                           <li class="has-dropdown">
                               <a href="page.html">Friends</a>
                               <ul class="dropdown">
-                                  <li><%= link_to 'Find Friends', users_path %></li>
+                                  <li><%= link_to 'Find Friends', friendships_path, class: 'find-friends' %></li>
                                   <li><a href="page.html">Pending Opportunities</a></li>
                                   <li><a href="sidebar-left.html">Confirmed Opportunities</a></li>
                               </ul>
@@ -51,8 +51,9 @@
                       </ul>
                       <% if current_user %>
                       <div class="row right welcome-message">
-                        <span class="alert round radius label friend-badge">1</span>
-                          <%= image_tag('friendrequest.png', id: 'friend-icon') %>
+                        <span class="alert round radius label friend-badge"><%= pending_requests.count %></span>
+                          <%= link_to pending_requests_friendships_path do %><%= image_tag('friendrequest.png', id: 'friend-icon') %>
+                          <% end %>
                           <%= image_tag(current_user.image, id: 'gravatar') %>
                             Welcome, <%= current_user.first_name  %>
                       </div>
