@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     collection do
       get :pending_requests
     end
+
+    member do
+      put :approve
+    end
   end
 
 

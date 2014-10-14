@@ -7,7 +7,7 @@ describe 'user' do
     sign_in
     find('.find-friends').click
 
-    expect(current_path).to eq(friendships_path)
+    expect(current_path).to eq(users_path)
     expect(page).to have_content(user.name)
     expect(page).to have_content(user2.name)
 
@@ -26,18 +26,30 @@ describe 'user' do
   end
 
   it 'can view all pending friend requests' do
-    pending
     sign_in
-    user = FactoryGirl.create(:user)
+    user = User.where(email: 'bobgu@example.com').first_or_create
     user2 = FactoryGirl.create(:user, name: 'Chad Brading')
 
-    find('.find-friends').click
+    user2.friends << user
 
-    first(:link, 'Send Friend Request').click
     visit pending_requests_friendships_path
 
     expect(current_path).to eq(pending_requests_friendships_path)
     expect(page).to have_content(user2.name)
+  end
+
+  it 'can approve an incoming friend request' do
+    sign_in
+    user = User.where(email: 'bobgu@example.com').first_or_create
+    user2 = FactoryGirl.create(:user, name: 'Chad Brading')
+
+    user2.friends << user
+
+    visit pending_requests_friendships_path
+    first(:link, 'Approve').click
+    expect(current_path).to eq(friendships_path)
+    expect(page).to have_content(user2.name)
+
   end
 
 end

@@ -7,7 +7,7 @@
       <%= image_tag(friend.image, id: 'gravatar-friend') %>
       <%= friend.name.titleize %>
       <%= friend.email %>
-      <%= link_to 'Approve', '#', class: "right" %>
+      <%= link_to 'Approve', approve_friendship_path(friend), method: 'put', class: "right" %>
     </div>
     <% end %>
   </div>

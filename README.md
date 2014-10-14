@@ -1,5 +1,7 @@
-## Iteration Planning ##
+[![Code Climate](https://codeclimate.com/github/tdoan87/together_we_help/badges/gpa.svg)](https://codeclimate.com/github/tdoan87/together_we_help)
 [![Stories in Ready](https://badge.waffle.io/tdoan87/together_we_help.svg?label=ready&title=Ready)](http://waffle.io/tdoan87/together_we_help)
+[![Build Status](https://travis-ci.org/tdoan87/together_we_help.svg)](https://travis-ci.org/tdoan87/together_we_help)
+## Iteration Planning ##
 
 ### Have a Thing 10/2
 

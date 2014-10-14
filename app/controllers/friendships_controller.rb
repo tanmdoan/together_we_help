@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @users = User.all.exclude(current_user)
+    @friends = current_user.find_my_friends
   end
 
   def create
@@ -20,6 +20,16 @@ class FriendshipsController < ApplicationController
     friend_ids = requests.map(&:user_id)
 
     @unconfirmed_friends = User.where(id: friend_ids)
+  end
+
+  def approve
+    @friendship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id, confirmed: false)
+
+    if @friendship && @friendship.toggle!(:confirmed)
+      redirect_to friendships_path, notice: 'Friend request approved!'
+    else
+      render pending_requests_friendships_path, alert: 'Approval failed!'
+    end
   end
 
 end

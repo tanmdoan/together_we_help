@@ -1,12 +1,12 @@
 <div class= 'row'>
   <div class= 'medium-6 columns'>
 
-    <h1>All Users</h1>
-    <%= div_for(@users, class: 'user') do |user| %>
+    <h1>My Friends</h1>
+    <%= div_for(@friends, class: 'user') do |friend| %>
     <div class="panel">
-      <%= image_tag(user.image, id: 'gravatar-friend') %>
-      <%= user.name %>
-      <%= link_to 'Send Friend Request', friendships_path(friend_id: user.id  ), method: :post, class: "right" %>
+      <%= image_tag(friend.image, id: 'gravatar-friend') %>
+      <%= friend.name %>
+
     </div>
     <% end %>
   </div>
