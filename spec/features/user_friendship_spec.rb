@@ -1,4 +1,4 @@
-describe 'user friends' do
+describe 'user' do
 
   let!(:user) { FactoryGirl.create(:user)}
   let!(:user2) { FactoryGirl.create(:user, name: 'marc')}
@@ -13,26 +13,28 @@ describe 'user friends' do
 
   end
 
-  it 'user can send a friend request' do
+  it 'can send a friend request' do
     user = FactoryGirl.create(:user)
-    pending
     sign_in
 
     find('.find-friends').click
-    first(:link, 'Send Friend Request')
+    first(:link, 'Send Friend Request').click
 
     expect(current_path).to eq(users_path)
 
     expect(page).to have_content('Request sent.')
   end
 
-  it 'user can view all pending friend requests' do
+  it 'can view all pending friend requests' do
+    pending
     sign_in
     user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user, name: 'Chad Brading')
-    user.friends << user2
 
-    find('#friend-icon').click
+    find('.find-friends').click
+
+    first(:link, 'Send Friend Request').click
+    visit pending_requests_friendships_path
 
     expect(current_path).to eq(pending_requests_friendships_path)
     expect(page).to have_content(user2.name)

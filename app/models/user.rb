@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :opportunities
   has_many :friendships
   has_many :friends, through: :friendships
-  
+
   def self.find_or_create_by_auth(auth_data)
     user = self.find_or_initialize_by(provider: auth_data["provider"], uid: auth_data['uid'])
     unless user.persisted? && user.name == auth_data['info']['name']
@@ -18,5 +18,9 @@ class User < ActiveRecord::Base
       user.save!
     end
     return user
+  end
+
+  def self.exclude(user)
+    where("email != ?", user.email)
   end
 end

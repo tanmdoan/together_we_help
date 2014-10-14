@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.exclude(current_user)
   end
 
   def create
