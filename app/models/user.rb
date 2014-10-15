@@ -40,13 +40,15 @@ class User < ActiveRecord::Base
 
   def find_my_friends
     friendships = self.inverse_friendships.where(confirmed: true)
-    ids = friendships.map { |x| [x.user_id, x.friend_id] }
-                     .flatten
-                     .reject { |x| x == id }
+    ids = finding_ids_from(friendships)
 
     User.find(ids)
   end
 
-
+  def finding_ids_from(friendships)
+    friendships.map { |x| [x.user_id, x.friend_id] }
+                     .flatten
+                     .reject { |x| x == id }
+  end
 
 end

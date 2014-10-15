@@ -22,7 +22,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
+gem 'execjs'
+gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'gravatar_image_tag'
