@@ -50,11 +50,19 @@ describe 'opportunities' do
     expect(opportunity.organization_name).to eq("Gerine's")
   end
 
-  it 'can be seen when visiting pending opportunities' do
+  it 'can be seen when visiting my pending opportunities' do
     opportunity = FactoryGirl.create(:opportunity)
 
     visit opportunities_path
     expect(current_path).to eq(opportunities_path)
     expect(page).to have_content(opportunity.title)
+  end
+
+  it 'of friends can be seen in pending opportunities' do
+    sign_in
+    user = User.where(email: 'bobgu@example.com').first_or_create
+    user2 = FactoryGirl.create(:user, name: 'Chad')
+
+    opportunity = FactoryGirl.create(:opportunity, user_id: user)
   end
 end

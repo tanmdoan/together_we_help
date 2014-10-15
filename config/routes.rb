@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get '/login' => redirect('/auth/facebook'), as: :login
   get '/logout' => 'sessions#destroy', as: :logout
 
-  resources :opportunities, only: [:new, :create, :index]
+  resources :opportunities do
+    collection do
+      get :friend_opportunities
+    end
+  end
+
   resources :users, only: [:index, :show]
   resources :friendships do
     collection do

@@ -13,6 +13,11 @@ class OpportunitiesController < ApplicationController
     redirect_to opportunities_path
   end
 
+  def friend_opportunities
+    @opportunities = current_user.friends.map do |friend|
+                                                friend.opportunities
+                                              end.flatten
+  end
 
   private
 
