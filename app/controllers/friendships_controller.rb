@@ -18,9 +18,9 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id, confirmed: true)
     if @friendship.destroy
-      redirect_to friendships_path, notice = 'Successfully removed friend!'
+      redirect_to friendships_path, notice = 'Successfully blocked user!'
     else
-      render friendships_path, alert = 'Failed to remove friend!'
+      render friendships_path, alert = 'Failed to block user!'
     end
   end
 

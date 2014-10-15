@@ -23,10 +23,20 @@ class User < ActiveRecord::Base
     return user
   end
 
-  def self.exclude(user)
-    friends = user.find_my_friends
-    where("email != ?", user.email)
+
+
+  def self.excludes(user)
+    ids = user.inverse_friendships
+                     .map { |x| [x.user_id, x.friend_id] }
+                     .flatten
+                     .reject { |x| x == user.id }
+    self.where.not(id: ids, email: user.email)
+
+
   end
+
+
+
 
   def find_my_friends
     friendships = self.inverse_friendships.where(confirmed: true)
@@ -36,4 +46,7 @@ class User < ActiveRecord::Base
 
     User.find(ids)
   end
+
+
+
 end

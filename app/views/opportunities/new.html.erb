@@ -1,5 +1,6 @@
 <div class='row'>
   <div class='medium-12 columns'>
+    <h1>Opportunities Near You</h1>
     <% @opportunities.each do |opportunity| %>
       <div class="panel">
         <%= form_for @opportunity do |f| %>
@@ -15,7 +16,12 @@
           <%= raw opportunity.description %>
           <%= f.hidden_field :description, value: opportunity.description %>
 
+          </br><h5>Start Date:</h5>
+          <%= opportunity.start_date %>
+          <%= f.hidden_field :start_date, value: opportunity.start_date %>
+
           </br></br>
+          <%= f.hidden_field :vm_url, value: opportunity.vm_url %>
           <%= f.submit class: 'button small' %><%= link_to 'More info', opportunity.vm_url, class: 'button small secondary' %>
         <% end %>
       </div>

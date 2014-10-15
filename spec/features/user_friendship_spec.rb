@@ -50,7 +50,7 @@ describe 'user' do
 
   end
 
-  it 'can remove friends' do
+  it 'can block user' do
     sign_in
     user = User.where(email: 'bobgu@example.com').first_or_create
 
@@ -59,7 +59,7 @@ describe 'user' do
     visit pending_requests_friendships_path
     first(:link, 'Approve').click
     visit friendships_path
-    click_link('Remove')
+    click_link('Block')
     visit friendships_path
 
     expect(page).to_not have_content(user2.name)
