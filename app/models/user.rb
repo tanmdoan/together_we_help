@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_by_auth(auth_data)
     user = self.find_or_initialize_by(provider: auth_data["provider"], uid: auth_data['uid'])
-    unless user.persisted? && user.name == auth_data['info']['name']
+    unless user.persisted? && user.name == auth_data['info']['uid']
       user.name       = auth_data['info']['name']
       user.first_name = auth_data['info']['first_name']
       user.email      = auth_data['info']['email']
@@ -20,7 +20,17 @@ class User < ActiveRecord::Base
       user.location   = auth_data['info']['location']
       user.save!
     end
-    return user
+      return user
+      check_new(user)
+  end
+
+  def check_new(user)
+    if user.new_user == true
+      user.new_user.toggle!
+      UserNotifier.welcome_email(user).deliver
+    else
+      user
+    end
   end
 
 
