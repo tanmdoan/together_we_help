@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :opportunities do
     collection do
       get :friend_opportunities
+      get :my_confirmed
     end
   end
 

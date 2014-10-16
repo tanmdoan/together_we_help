@@ -7,4 +7,8 @@ class Opportunity < ActiveRecord::Base
       OpportunityPresenter.new(opportunity)
     end
   end
+
+  def self.confirmed
+    where(confirmed: true)
+  end
 end

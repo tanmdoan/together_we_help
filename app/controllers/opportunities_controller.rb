@@ -19,6 +19,10 @@ class OpportunitiesController < ApplicationController
                                               end.flatten
   end
 
+  def my_confirmed
+    @opportunities = current_user.opportunities.confirmed
+  end
+
   private
 
   def opportunity_params

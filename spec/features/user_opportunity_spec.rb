@@ -65,4 +65,18 @@ describe 'opportunities' do
 
     opportunity = FactoryGirl.create(:opportunity, user_id: user)
   end
+
+  it 'should be able to see my confirmed opportunities and not unconfirmed' do
+    sign_in
+    user = User.where(email: 'bobgu@example.com').first_or_create
+    opportunity = FactoryGirl.create(:opportunity,
+                                     confirmed: true, user_id: user.id)
+    opportunity2 = FactoryGirl.create(:opportunity,
+                                      confirmed: false, user_id: user.id)
+
+    click_link_or_button('My Confirmed Opportunities')
+
+    expect(current_path).to eq(my_confirmed_opportunities_path)
+    expect(page).to have_content(opportunity.title)
+  end
 end
