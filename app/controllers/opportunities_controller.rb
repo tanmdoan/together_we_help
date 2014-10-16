@@ -1,6 +1,6 @@
 class OpportunitiesController < ApplicationController
   def index
-    @opportunities = Opportunity.unconfirmed
+    @opportunities = current_user.opportunities.unconfirmed
   end
 
   def new
