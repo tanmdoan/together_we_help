@@ -4,18 +4,18 @@
     <h1>Your Friend's Pending Opportunities</h1>
     <%= div_for(@opportunities, class: 'opportunity') do |opportunity| %>
       <div class="panel">
-      <h5>Host: <%= opportunity.user.name.titleize %></h5></br>
+      <h5>Host: <%= image_tag(opportunity.user.image) %><%= opportunity.user.name.titleize %></h5></br>
       <h5>Title:</h5>
       <%= opportunity.title %></br>
       </br><h5>Organization:</h5>
       <%= opportunity.organization_name %>
       </br>
       </br><h5>Description:</h5>
-      <%= raw opportunity.description %>
+      <%= raw opportunity.description %></br>
       </br><h5>Start Date:</h5>
       <%= opportunity.start_date %>
       </br></br>
-      <%= link_to 'Like', like_opportunity_path(opportunity), method: 'put', class: 'button tiny' %> <span class='success round label'><%= opportunity.votes_for.size %></span>
+      <%= link_to 'Like', like_opportunity_path(opportunity), method: 'put', class: 'button tiny' %> <span class='success label tiny'><%= opportunity.votes_for.size %></span>
 
     <% end %>
   </div>

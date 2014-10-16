@@ -12,7 +12,8 @@
       </br><h5>Description:</h5>
       <%= raw opportunity.description %>
       </br><h5>Start Date:</h5>
-      <%= opportunity.start_date %>
+      <%= opportunity.start_date %></br>
+    </br><span class='label'><%= opportunity.votes_for.count %> Like(s)</span>
     </br></br>
       <%= link_to 'Confirm', confirm_opportunity_path(opportunity), method: 'put', class: 'success button small' %>
     <% end %>
