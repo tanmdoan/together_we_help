@@ -9,8 +9,8 @@ class FriendshipsController < ApplicationController
     if @friendship.save
       flash[:notice] = "Request sent."
       redirect_to users_path
-      user_id = User.find(params[:friend_id]).id
-      HardWorker.perform_async(user_id)
+      # user_id = User.find(params[:friend_id]).id
+      # HardWorker.perform_async(user_id)
     else
       flash[:notice] = "Unable to send request."
       redirect_to users_path

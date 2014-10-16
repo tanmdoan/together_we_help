@@ -29,6 +29,7 @@ gem 'omniauth-facebook'
 gem 'gravatar_image_tag'
 gem 'figaro'
 gem 'sidekiq'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

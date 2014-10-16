@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   resources :opportunities do
     collection do
       get :friend_opportunities
+      get :confirmed_friend_opportunities
       get :my_confirmed
     end
 
     member do
       put :confirm
+      put :like
     end
   end
 

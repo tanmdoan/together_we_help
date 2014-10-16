@@ -1,5 +1,6 @@
 class Opportunity < ActiveRecord::Base
   belongs_to :user
+  acts_as_votable
 
   def self.collect_opportunities
     data = VolunteerMatchApi.new.find_events_by_location('Denver, CO')

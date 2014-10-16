@@ -33,8 +33,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
-
   def self.excludes(user)
     ids = user.inverse_friendships
                      .map { |x| [x.user_id, x.friend_id] }
@@ -49,7 +47,7 @@ class User < ActiveRecord::Base
 
 
   def find_my_friends
-    friendships = self.inverse_friendships.where(confirmed: true)
+    friendships = Friendship.get_friends_for(self)
     ids = finding_ids_from(friendships)
 
     User.find(ids)

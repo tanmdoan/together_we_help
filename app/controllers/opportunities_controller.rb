@@ -14,9 +14,19 @@ class OpportunitiesController < ApplicationController
   end
 
   def friend_opportunities
-    @opportunities = current_user.friends.map { |friend|
-                                                friend.opportunities
+    @opportunities = current_user.inverse_friends.map { |friend|
+                                                friend.opportunities.unconfirmed
                                               }.flatten
+  end
+
+  def confirmed_friend_opportunities
+    @opportunities = current_user.inverse_friends.map { |friend|
+                                                friend.opportunities.confirmed
+                                              }.flatten
+  end
+
+  def like
+    @opportunity = Opportunity.find(params[:id]).liked_by(current_user)
   end
 
   def my_confirmed
