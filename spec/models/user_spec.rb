@@ -8,4 +8,6 @@ RSpec.describe User, :type => :model do
   it {should have_many :opportunities}
   it {should have_many :friendships}
   it {should have_many :friends}
+  it {should have_many :inverse_friendships}
+  it {should have_many :inverse_friends}
 end
