@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
     if @friendship.save
       flash[:notice] = "Request sent."
       redirect_to users_path
-      user_id = params[:friend_id]
+      user_id = User.find(params[:friend_id]).id
       HardWorker.perform_async(user_id)
     else
       flash[:notice] = "Unable to send request."
@@ -20,9 +20,9 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id, confirmed: true)
     if @friendship.destroy
-      redirect_to friendships_path, notice = 'Successfully blocked user!'
+      redirect_to friendships_path, notice: 'Successfully blocked user!'
     else
-      render friendships_path, alert = 'Failed to block user!'
+      render friendships_path, notice: 'Failed to block user!'
     end
   end
 
