@@ -27,6 +27,7 @@ class OpportunitiesController < ApplicationController
 
   def like
     @opportunity = Opportunity.find(params[:id]).liked_by(current_user)
+    redirect_to friend_opportunities_opportunities_path
   end
 
   def my_confirmed
