@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       get :friend_opportunities
       get :my_confirmed
     end
+
+    member do
+      put :confirm
+    end
   end
 
   resources :users, only: [:index, :show]

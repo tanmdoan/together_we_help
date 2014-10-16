@@ -78,5 +78,24 @@ describe 'opportunities' do
 
     expect(current_path).to eq(my_confirmed_opportunities_path)
     expect(page).to have_content(opportunity.title)
+    
+  end
+
+  it 'should be able to confirm opportunities' do
+    sign_in
+    user = User.where(email: 'bobgu@example.com').first_or_create
+    opportunity = FactoryGirl.create(:opportunity,
+                                     confirmed: false, user_id: user.id)
+
+    click_link_or_button('My Pending Opportunities')
+    click_link_or_button('Confirm')
+
+    expect(current_path).to eq(opportunities_path)
+    expect(page).to_not have_content(opportunity.title)
+
+    click_link_or_button('My Confirmed Opportunities')
+
+    expect(current_path).to eq(my_confirmed_opportunities_path)
+    expect(page).to have_content(opportunity.title)
   end
 end

@@ -11,4 +11,8 @@ class Opportunity < ActiveRecord::Base
   def self.confirmed
     where(confirmed: true)
   end
+
+  def self.unconfirmed
+    where(confirmed: false)
+  end
 end

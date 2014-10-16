@@ -13,7 +13,8 @@
       <%= raw opportunity.description %>
       </br><h5>Start Date:</h5>
       <%= opportunity.start_date %>
-      </br></br>
+      </br>
+      <%= link_to 'Confirm', confirm_opportunity_path(opportunity), method: 'put', class: 'button' %>
     <% end %>
   </div>
 </div>

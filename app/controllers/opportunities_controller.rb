@@ -1,6 +1,6 @@
 class OpportunitiesController < ApplicationController
   def index
-    @opportunities = Opportunity.all
+    @opportunities = Opportunity.unconfirmed
   end
 
   def new
@@ -14,13 +14,18 @@ class OpportunitiesController < ApplicationController
   end
 
   def friend_opportunities
-    @opportunities = current_user.friends.map do |friend|
+    @opportunities = current_user.friends.map { |friend|
                                                 friend.opportunities
-                                              end.flatten
+                                              }.flatten
   end
 
   def my_confirmed
     @opportunities = current_user.opportunities.confirmed
+  end
+
+  def confirm
+    @opportunity = Opportunity.find(params[:id]).toggle!(:confirmed)
+    redirect_to opportunities_path
   end
 
   private
